@@ -9,12 +9,27 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import com.google.gson.Gson;
 
+/**
+ * Implementation of handling Mojang's Yggdrasil authentication system.<br>
+ * Based on the information at <a href="http://wiki.vg/Authentication">MinecraftCoalition</a>
+ * 
+ * @author Scott M. Barbour
+ *
+ */
 public class AuthManager {
 	private final Agent MINECRAFT = new Agent("Minecraft",1);
 	private final URL AUTH = constantURL("https://authserver.mojang.com/authenticate");
 	private final URL REFRESH = constantURL("https://authserver.mojang.com/refresh");
 	private final Gson gson = new Gson();
 	
+	/**
+	 * Submits an initial authentication request to Mojang and returns the result.
+	 * 
+	 * @param username	The username of the account (Minecraft name for accounts that haven't been converted to Mojang accounts)
+	 * @param password	The user's password in cleartext
+	 * @param clientToken	A UUID for identifying the client in subsequent authentications.
+	 * @return	The deserialized result of the JSON response from Mojang.
+	 */
 	public SessionResponse authenticate(String username, String password, String clientToken) {
 		AuthRequest request = new AuthRequest(MINECRAFT, username, password, clientToken);
 		String result = performJsonPost(AUTH, gson.toJson(request));
@@ -23,6 +38,13 @@ public class AuthManager {
 		return response;
 	}
 	
+	/**
+	 * Refreshes an existing authentication.  Returns with a new accessToken.
+	 * 
+	 * @param accessToken	The previous authentication token.
+	 * @param clientToken	A UUID for identifying the client in subsequent authentications.
+	 * @return	The deserialized result of the JSON response from Mojang.
+	 */
 	public SessionResponse refresh(String accessToken, String clientToken) {
 		RefreshRequest request = new RefreshRequest(accessToken, clientToken);
 		String result = performJsonPost(REFRESH, gson.toJson(request));
@@ -73,7 +95,7 @@ public class AuthManager {
 		return null;
 	}
 
-	public static URL constantURL(String input) {
+	private static URL constantURL(String input) {
 	    try {
 	      return new URL(input);
 	    } catch (MalformedURLException e) {

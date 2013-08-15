@@ -1,5 +1,10 @@
 package org.mcupdater.Yggdrasil;
-
+/**
+ * Authentication user profile
+ * 
+ * @author Scott M. Barbour
+ *
+ */
 public class Profile {
 	private String id;
 	private String name;
