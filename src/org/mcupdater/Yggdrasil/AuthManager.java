@@ -33,7 +33,7 @@ public class AuthManager {
 	public SessionResponse authenticate(String username, String password, String clientToken) {
 		AuthRequest request = new AuthRequest(MINECRAFT, username, password, clientToken);
 		String result = performJsonPost(AUTH, gson.toJson(request));
-		System.out.println(result);
+		//System.out.println(result);
 		SessionResponse response = gson.fromJson(result, SessionResponse.class);
 		return response;
 	}
@@ -48,7 +48,7 @@ public class AuthManager {
 	public SessionResponse refresh(String accessToken, String clientToken) {
 		RefreshRequest request = new RefreshRequest(accessToken, clientToken);
 		String result = performJsonPost(REFRESH, gson.toJson(request));
-		System.out.println(result);
+		//System.out.println(result);
 		SessionResponse response = gson.fromJson(result, SessionResponse.class);
 		return response;
 	}

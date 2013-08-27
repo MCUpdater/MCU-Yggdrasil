@@ -6,9 +6,9 @@ package org.mcupdater.Yggdrasil;
  *
  */
 public class ErrorResponse {
-	private String error;
-	private String errorMessage;
-	private String cause;
+	private String error = "";
+	private String errorMessage = "";
+	private String cause = "";
 	
 	public String getError() {
 		return this.error;
