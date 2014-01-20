@@ -1,5 +1,7 @@
 package org.mcupdater.Yggdrasil;
 
+import com.google.gson.Gson;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,7 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import com.google.gson.Gson;
 
 /**
  * Implementation of handling Mojang's Yggdrasil authentication system.<br>
@@ -74,7 +75,7 @@ public class AuthManager {
 			outStream.flush();
 			outStream.close();
 			
-			InputStream inStream = null;
+			InputStream inStream;
 			try {
 				inStream = conn.getInputStream();
 			} catch (Exception e) {
