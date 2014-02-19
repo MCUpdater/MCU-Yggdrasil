@@ -1,10 +1,14 @@
 package org.mcupdater.Yggdrasil;
+
+import org.mcupdater.JSON;
+
 /**
  * Authentication refresh request
  * 
  * @author Scott M. Barbour
  *
  */
+@JSON
 public class RefreshRequest {
 	private String accessToken;
 	private String clientToken;

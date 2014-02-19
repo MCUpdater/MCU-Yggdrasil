@@ -1,10 +1,14 @@
 package org.mcupdater.Yggdrasil;
+
+import org.mcupdater.JSON;
+
 /**
  * Authentication response
  * 
  * @author Scott M. Barbour
  *
  */
+@JSON
 public class SessionResponse extends ErrorResponse {
 	private String accessToken;
 	private String clientToken;

@@ -1,15 +1,17 @@
 package org.mcupdater.Yggdrasil;
+
+import org.mcupdater.JSON;
+
 /**
  * Initial authentication request
  * 
  * @author Scott M. Barbour
  *
  */
+@JSON
 public class AuthRequest {
-	@SuppressWarnings("unused")
 	private Agent agent;
 	private String username;
-	@SuppressWarnings("unused")
 	private String password;
 	private String clientToken;
 	

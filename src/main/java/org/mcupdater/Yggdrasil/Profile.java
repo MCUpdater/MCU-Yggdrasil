@@ -1,10 +1,14 @@
 package org.mcupdater.Yggdrasil;
+
+import org.mcupdater.JSON;
+
 /**
  * Authentication user profile
  * 
  * @author Scott M. Barbour
  *
  */
+@JSON
 public class Profile {
 	private String id;
 	private String name;

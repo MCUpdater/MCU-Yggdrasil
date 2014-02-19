@@ -1,10 +1,14 @@
 package org.mcupdater.Yggdrasil;
+
+import org.mcupdater.JSON;
+
 /**
  * Authentication response error fields
  * 
  * @author Scott M. Barbour
  *
  */
+@JSON
 public class ErrorResponse {
 	private String error = "";
 	private String errorMessage = "";

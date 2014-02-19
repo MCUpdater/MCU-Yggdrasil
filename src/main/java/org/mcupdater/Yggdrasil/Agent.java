@@ -1,10 +1,14 @@
 package org.mcupdater.Yggdrasil;
+
+import org.mcupdater.JSON;
+
 /**
  * Identifies the game to authenticate for.
  * 
  * @author Scott M. Barbour
  *
  */
+@JSON
 public class Agent {
 
 	private final String name;
